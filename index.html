@@ -8,25 +8,63 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    <!-- Go to high scores -->
-    <a href="high-scores.html">View High Scores</a>
-
-    <div class="container">
+    <header class="header">
+        <!-- Go to high scores -->
+        <a id="high-scores" href="high-scores.html">View High Scores</a>
         <!-- Timer -->
-        <div id="current-time">I am time</div>
+        <div id="current-time">timer placeholder</div>
+    </header>
 
-        <div id="question-container" class="hide">
-            <div id="current-question">Question</div>
-            <div id="answer-choices" class="btn-grid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
+    <main>
+        <!-- questions screens -->
+        <div class="container">
+            <div id="question-container" class="hide">
+                <div id="questions">
+
+                </div>
+                <div id="answers">
+
+                </div>
+                <div id="feedback">
+
+                </div>
             </div>
+            <!-- start screen -->
+            <div id="start-screen">
+                <h1 id="quiz-title"> Javascript Fundamentals Coding Quiz </h1>
+                <p id="intro-content">
+                    Try answering the following code-related questions withing the time limit.<br>
+                    BUT keep in mind, an incorrect answer will penalize your time by 10 seconds.
+                </p>
+                <button id="start-btn" class="btn">Start Quiz</button>
+            </div>
+            <!-- submission screen -->
+            <div id="all-done" class="hide">
+                <h1 id="done-title"> Javascript Fundamentals Coding Quiz </h1>
+                <p id="your-score">
+                </p>
+                <form id="record-score" action="#">
+                    <label id="initials" type="input">
+                        Initials:
+                    </label>
+                </form>
+                <button id="submit-btn" class="btn">Submit your score!</button>
+            </div> 
         </div>
-        <button id="start-btn" class="start-btn btn">Start</button>
-    </div>
-    
+    </main>
+
 <script src="assets/js/script.js"></script>
 </body>
 </html>
+
+<!-- 
+To Do:
+- create html page. base html will have the containers that are present at start state
+- at start state: h1 title, p explanation, start button
+-- hidden: containers for answer-choices
+
+- on click of start button, start appending new states to html? 
+
+
+
+-->
