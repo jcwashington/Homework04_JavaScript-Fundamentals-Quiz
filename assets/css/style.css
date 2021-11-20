@@ -1,0 +1,125 @@
+:root {
+    --right-ans:#078543;
+    --wrong-ans: #FF0035;
+    --rich-black: #000814;
+    --contrast-yellow: #fdd535;
+    --white: #FFFFFF;
+    --lightest-purple: #F5F1FA;
+    --medium-purple: #B89AF2;
+    --darkest-purple: #291350;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+p {
+    font-size: 18px;
+}
+main {
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+   max-width: 80vw;
+   align-items: center;
+
+}
+/* page headers */
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2%;
+    background-color: var(--darkest-purple);
+    color: var(--lightest-purple);
+}
+#high-scores:hover, #high-scores:focus, #high-scores:active {
+    color: var(--contrast-yellow);
+}
+#high-scores {
+    color: var(--medium-purple);
+    float: left;
+}
+#hs-header {
+    font-size: 3rem;
+    justify-content: center;
+}
+
+
+.hide {
+    display: none;
+}
+
+/* page containers */
+.container {
+    text-align: center;
+    width:800px;
+    max-width: 80%;
+    background-color: var(--lightest-purple);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 20px 5px var(--darkest-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* buttons */
+.btn {
+    background-color: var(--darkest-purple);
+    border: 1px solid var(--darkest-purple);
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: var(--lightest-purple);
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+}
+.btn:hover , .btn:focus {
+    background-color: var(--medium-purple);
+    border: 1px solid var(--darkest-purple);
+    color: var(--darkest-purple);
+}
+#highscores-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* highscores table */
+#highscores {
+    width: 100%;
+}
+#highscores-list {
+    margin: 2rem;
+}
+#highscores-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#highscores-table td, #highscores-table th {
+    border: 1px solid var(--lightest-purple);
+    padding: 8px;
+}
+#highscores-table th{
+    padding: 15px 0;
+    text-align: center;
+    background-color: var(--darkest-purple);
+    color: var(--lightest-purple);
+}
