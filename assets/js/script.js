@@ -11,13 +11,13 @@ const questionEl = document.querySelector("#question-container");
 var theQuestion = document.querySelector("#questions");
 var answersEl = document.querySelector("#answers");
 const goBack = document.querySelector("#go-back-btn");
-// const viewHighscore = document.querySelector("#view-highscores");
-// const theHighscores = document.querySelector("#highscores");
 let shuffledQuestions, currentQuestion
 var ansBtns;
 var allDone = document.querySelector("#all-done");
 var finalScore = document.getElementById("#your-score");
- 
+const viewHighscores = document.querySelector("#view-highscores");
+var highscorePage = document.querySelector("#highscores")
+
 
 
 // The Question Array
@@ -47,8 +47,19 @@ answers.addEventListener('click', function(event){
     checkAnswer(event.textContent.trim());
     setQuestion();
 });
+viewHighscores.addEventListener('click', goToHighscores)
 
 
+// Go to Highscore page
+function goToHighscores () {
+
+    // hide anything that is not highscore list
+    startScreen.classList.add("hide");
+    questionEl.classList.add("hide");
+    allDone.classList.add("hide");
+    // display highscores list
+    highscorePage.classList.remove("hide");
+}
 
 // Timer
 function timer() {
@@ -110,7 +121,7 @@ function showQuestion(question) {
 function resetState () {
     while (answersEl.firstChild) {
         answersEl.removeChild(answersEl.firstChild);
-        ansFeedback.innerText = ""
+        
     }
 }
 // Check Answers
@@ -124,11 +135,11 @@ function checkAnswer (event){
         endGame = true;
         gameOver();
     } else if (event === shuffledQuestions[currentQuestion].correct) {
-        ansFeedback.classList.add("right-ans");
+        //ansFeedback.classList.add("right-ans");
         ansFeedback.innerText = "That was correct";
         currentQuestion++;
     } else {
-        ansFeedback.classList.add("wrong-ans");
+      //  ansFeedback.classList.add("wrong-ans");
         ansFeedback.innerText = "That was wrong";
         wrongAns = true;
         currentQuestion++;
