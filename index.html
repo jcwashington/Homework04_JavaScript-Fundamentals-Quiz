@@ -10,9 +10,9 @@
 <body>
     <header class="header">
         <!-- Go to high scores -->
-        <a id="high-scores" href="high-scores.html">View High Scores</a>
+        <button id="view-highscores" class="btn">View High Scores</button>
         <!-- Timer -->
-        <div id="current-time">timer placeholder</div>
+        <div id="current-time">Time : </div>
     </header>
 
     <main>
@@ -20,13 +20,10 @@
         <div class="container">
             <div id="question-container" class="hide">
                 <div id="questions">
-
                 </div>
                 <div id="answers">
-
                 </div>
-                <div id="feedback">
-
+                <div id="ansFeedback">
                 </div>
             </div>
             <!-- start screen -->
@@ -50,6 +47,34 @@
                 </form>
                 <button id="submit-btn" class="btn">Submit your score!</button>
             </div> 
+            <div id="highscores" class="hide">
+                <h1 id="table-title"> Current Highscores </h1>
+                <div id="highscores-list">
+                    <table id="highscores-table">
+                        <tr>
+                            <th>Initials</th>
+                            <th>Score</th>
+                        </tr>
+                        <tr>
+                            <td>PH</td>
+                            <td>55</td>
+                        </tr>
+                        <tr>
+                        <td>P.H.</td>
+                        <td>75</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="highscores-buttons">
+                    <button id="go-back-btn" class="btn" >
+                        Go Back
+                    </button>
+                    <button id="clear-btn" class="btn">
+                        Clear
+                    </button>
+                </div>
+            </div>
+            </div>
         </div>
     </main>
 

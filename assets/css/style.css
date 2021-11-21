@@ -37,6 +37,10 @@ main {
    align-items: center;
 
 }
+
+.hide {
+    display: none;
+}
 /* page headers */
 .header {
     display: flex;
@@ -45,22 +49,19 @@ main {
     padding: 2%;
     background-color: var(--darkest-purple);
     color: var(--lightest-purple);
+    align-items: center;
 }
-#high-scores:hover, #high-scores:focus, #high-scores:active {
+#view-highscores:hover, #view-highscores:focus, #view-highscores:active {
     color: var(--contrast-yellow);
 }
-#high-scores {
-    color: var(--medium-purple);
+#view-highscores {
     float: left;
+    margin: 0;
+    text-align: start;
+    font-size: 1rem;
 }
 #hs-header {
-    font-size: 3rem;
     justify-content: center;
-}
-
-
-.hide {
-    display: none;
 }
 
 /* page containers */
@@ -77,6 +78,16 @@ main {
     justify-content: center;
     align-items: center;
 }
+#answers {
+    justify-content: center;
+}
+/* answer states */
+.right-ans{
+   color: var(--right-ans);
+}
+.wrong-ans{
+    color: var(--wrong-ans);
+ }
 
 /* buttons */
 .btn {
@@ -90,12 +101,21 @@ main {
     font-weight: bold;
     padding: 10px 20px;
     display: block;
+    text-align: center;
     margin: 0 auto;
+    width: 400px;
 }
 .btn:hover , .btn:focus {
     background-color: var(--medium-purple);
     border: 1px solid var(--darkest-purple);
     color: var(--darkest-purple);
+}
+.answer-btns {
+    padding: 0;
+    font-size: 1rem;
+    margin: 1px;
+    justify-content: center;
+
 }
 #highscores-buttons {
     display: flex;
