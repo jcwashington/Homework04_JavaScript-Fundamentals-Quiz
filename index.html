@@ -37,13 +37,11 @@
             </div>
             <!-- submission screen -->
             <div id="all-done" class="hide">
-                <h1 id="done-title"> Javascript Fundamentals Coding Quiz </h1>
-                <p id="your-score">
-                </p>
+                <h1 id="done-title"> You're all done! </h1>
+                <p id="your-score"></p>
                 <form id="record-score" action="#">
-                    <label id="initials" type="input">
-                        Initials:
-                    </label>
+                    <label id="initials" type="input"> Initials:</label>
+                    <input type="text" id="playerInitials" value=""/>
                 </form>
                 <button id="submit-btn" class="btn">Submit your score!</button>
             </div> 
@@ -60,8 +58,8 @@
                             <td>55</td>
                         </tr>
                         <tr>
-                        <td>P.H.</td>
-                        <td>75</td>
+                        <td id="submittedInitials"></td>
+                        <td id="submittedScore"></td>
                         </tr>
                     </table>
                 </div>

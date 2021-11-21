@@ -109,6 +109,7 @@ main {
     border: 1px solid var(--darkest-purple);
     color: var(--darkest-purple);
 }
+/* page specific buttons */
 .answer-btns {
     padding: 0;
     font-size: 1rem;
@@ -120,6 +121,9 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+#submit-btn {
+    margin: 3% 0;
 }
 /* highscores table */
 #highscores {

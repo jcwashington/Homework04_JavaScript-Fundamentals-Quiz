@@ -4,19 +4,27 @@ var wrongAns = false;
 var stopGame = false;
 
 // DOM elements
+let shuffledQuestions, currentQuestion;
+
 var timeLeft = document.querySelector("#current-time");
 var startBtn = document.querySelector("#start-btn");
 var startScreen = document.querySelector("#start-screen");
-const questionEl = document.querySelector("#question-container");
 var theQuestion = document.querySelector("#questions");
 var answersEl = document.querySelector("#answers");
-const goBack = document.querySelector("#go-back-btn");
-let shuffledQuestions, currentQuestion
 var ansBtns;
 var allDone = document.querySelector("#all-done");
-var finalScore = document.getElementById("#your-score");
+var finalScore = document.querySelector("#your-score");
+var highscorePage = document.querySelector("#highscores");
+var highscoreTable = document.querySelector("highscores-list")
+var listOfHighscores = [];
+var rememberedScores;
+var submittedInitials = document.querySelector("#submittedInitials");
+var submittedScore = document.querySelector("#submittedScore");
+const goBack = document.querySelector("#go-back-btn");
+const questionEl = document.querySelector("#question-container");
 const viewHighscores = document.querySelector("#view-highscores");
-var highscorePage = document.querySelector("#highscores")
+const submitBtn = document.querySelector('#submit-btn');
+
 
 
 
@@ -47,7 +55,8 @@ answers.addEventListener('click', function(event){
     checkAnswer(event.textContent.trim());
     setQuestion();
 });
-viewHighscores.addEventListener('click', goToHighscores)
+viewHighscores.addEventListener('click', goToHighscores);
+submitBtn.addEventListener('click', submitInfo);
 
 
 // Go to Highscore page
@@ -120,8 +129,7 @@ function showQuestion(question) {
 }
 function resetState () {
     while (answersEl.firstChild) {
-        answersEl.removeChild(answersEl.firstChild);
-        
+        answersEl.removeChild(answersEl.firstChild);   
     }
 }
 // Check Answers
@@ -148,16 +156,49 @@ function checkAnswer (event){
 
 // When the game is over
 function gameOver () {
-    var playerScore;
     //hide the question container
     questionEl.classList.add("hide");
     // show the end screen
     allDone.classList.remove("hide");
     // show a score
     timeLeft.textContent = "Time: " + secondsLeft;
-    playerScore = secondsLeft;
-    finalScore.textContent = "Final Score: " + playerScore;
+    finalScore.textContent = "Final Score: " + secondsLeft;
+    
 }
+
+// submit score and initials
+function submitInfo () {
+    var saveScore = secondsLeft;
+    var saveInitials = document.querySelector("#playerInitials").value;
+    console.log(saveInitials + "/" + saveScore);
+    addToHighscores(saveInitials, saveScore);
+}
+
+// add submitted info to listOfHighscores
+function addToHighscores (saveInitials, saveScore) {
+    debugger;
+    if (Object.keys(listOfHighscores.length === 0)) {
+        listOfHighscores = [saveInitials, saveScore];
+        localStorage.setItem("currentScore", JSON.stringify(listOfHighscores));
+    } else {
+        listOfHighscores.push([saveInitials, saveScore]);
+        localStorage.setItem("currentScore", JSON.stringify(listOfHighscores));
+    }
+
+    allDone.classList.add("hide");
+    highscorePage.classList.remove("hide");
+    rememberedScores = JSON.parse(localStorage.currentScore);
+    rememberedScores.forEach(printHighscores);
+}
+function printHighscores () {
+        var tRow = document.createElement("tr");
+        var scoreInitial = document.createElement("td")
+        scoreInitial.value = rememberedScores[0];
+        var scoreValue = document.createElement("td")
+        scoreValue.value = rememberedScores[1];
+}
+
+
 
 
 // Restart for when Go Back is clicked
